@@ -1,0 +1,11 @@
+ <!--  Recorrer la lista de publicaciones  -->
+<h1>Blog Posts</h1>
+{% for post in blog_list %}
+    <ul>
+        <li>
+            <h2>{{ post.title }}</h2>
+            <p><strong>Author:</strong> {{ post.author }}</p>
+            <p><strong>Created at:</strong> {{ post.created_at }}</p>
+        </li>
+    </ul>
+{% endfor %}
