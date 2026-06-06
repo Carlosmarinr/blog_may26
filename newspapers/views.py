@@ -7,17 +7,18 @@ from django.views.generic import (ListView,
                                   UpdateView,
                                   DeleteView
                                 )
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 # Create your views here.
 class BlogListView(ListView):
     model = Blog
     template_name = 'post-list.html'
 
-class BlogDetailView(DetailView):
+class BlogDetailView(LoginRequiredMixin, DetailView):
     model = Blog
     template_name = 'post-detail.html'
 
-class BlogCreateView(CreateView):
+class BlogCreateView(LoginRequiredMixin, CreateView):
     model = Blog
     template_name = 'post-create.html'
     fields = ['title', 'content', 'author']
