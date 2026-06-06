@@ -13,6 +13,16 @@
         <nav>
             <a href="{% url 'post-create' %}">Nueva Publicación</a>
         </nav>
+        <!-- Login y logout -->
+        {% if user.is_authenticated %}
+            <p>Hola, {{ user.username }}!</p>
+            <form method="post" action="{% url 'logout' %}">
+                {% csrf_token %}
+                <button type="submit">Cerrar Sesión</button>
+            </form>
+        {% else %}
+            <a href="{% url 'login' %}">Iniciar Sesión</a>
+        {% endif %}
     </header>
     <main>
     {% block content %}

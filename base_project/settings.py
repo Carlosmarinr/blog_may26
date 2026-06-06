@@ -119,3 +119,4 @@ STATIC_URL = 'static/'
 
 
 LOGIN_REDIRECT_URL = 'post-list'
+LOGOUT_REDIRECT_URL = 'post-list'
